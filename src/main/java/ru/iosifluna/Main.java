@@ -3,12 +3,19 @@ package ru.iosifluna;
 import java.time.Duration;
 import java.time.LocalTime;
 import java.util.Arrays;
+import java.util.Scanner;
 import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите количество кубиков от 1 до 9: ");
+        int k = scanner.nextInt();
+        System.out.print("Введите количество граней на каждом кубике от 1 до 9: ");
+        int n = scanner.nextInt();
+
         LocalTime timeStart = LocalTime.now();
-        Stack<String> combinations = findCombinations(3, 6);
+        Stack<String> combinations = findCombinations(k, n);
         LocalTime timeEnd = LocalTime.now();
         System.out.printf("Время выполнения: %s\n", Duration.between(timeStart, timeEnd).toString());
         System.out.printf("Получилось %d вариантов", combinations.size());
